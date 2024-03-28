@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\SingleArtisanController;
 use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,3 +94,9 @@ Route::get('/about','App\Http\Controllers\DemoController@about');
 
 Route::get('/post',SingleArtisanController::class);
 Route::resource('/res',ResourceController::class);
+
+// Route::get('/register',[RegistrationController::class,'index']);
+// Route::post('/register',[RegistrationController::class,'register']);
+
+Route::get('/input',[RegistrationController::class,'index']);
+Route::post('/input',[RegistrationController::class,'register']);
