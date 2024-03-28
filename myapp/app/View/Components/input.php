@@ -15,6 +15,7 @@ class input extends Component
      *
      * @return void
      */
+    //php artisan make:model model_name --migration
     public function __construct($type,$label,$name,$demo=0)
     {
         $this->type = $type;

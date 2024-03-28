@@ -5,7 +5,7 @@ use App\Http\Controllers\DemoController;
 use App\Http\Controllers\SingleArtisanController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\RegistrationController;
-
+use App\Models\Customer;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,3 +100,9 @@ Route::resource('/res',ResourceController::class);
 
 Route::get('/input',[RegistrationController::class,'index']);
 Route::post('/input',[RegistrationController::class,'register']);
+
+Route::get('/customer',function(){
+$customers = Customer::all();
+echo '<pre>';
+print_r($customers->toArray());
+});
