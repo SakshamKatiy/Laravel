@@ -11,7 +11,7 @@
   </head>
   <body>
   <div class="container">
-    <form action="{{url('/')}}/register" method='post'>
+    <form action="{{$url}}" method='post'>
         @csrf
 <!-- <pre>
         @php

@@ -6,6 +6,7 @@ use App\Http\Controllers\SingleArtisanController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\RegistrationController;
 use App\Models\Customer;
+use App\Models\form;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -95,8 +96,8 @@ Route::get('/about','App\Http\Controllers\DemoController@about');
 Route::get('/post',SingleArtisanController::class);
 Route::resource('/res',ResourceController::class);
 
-// Route::get('/register',[RegistrationController::class,'index']);
-// Route::post('/register',[RegistrationController::class,'register']);
+Route::get('/register',[RegistrationController::class,'index']);
+Route::post('/register',[RegistrationController::class,'register']);
 
 Route::get('/input',[RegistrationController::class,'index']);
 Route::post('/input',[RegistrationController::class,'register']);
@@ -106,3 +107,15 @@ $customers = Customer::all();
 echo '<pre>';
 print_r($customers->toArray());
 });
+
+Route::get('/register/array',function(){
+    $forms = form::all();
+    echo '<pre>';
+    print_r($forms->toArray());
+});
+
+Route::get('/register/view',[RegistrationController::class,'view']);
+Route::get('/register/delete/{id}',[RegistrationController::class, 'delete'])->name('form.delete');
+
+Route::get('/register/edit/{id}',[RegistrationController::class, 'edit'])->name('form.edit');
+Route::get('/register/update/{id}',[RegistrationController::class, 'update'])->name('form.edit');
